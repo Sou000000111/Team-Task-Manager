@@ -128,6 +128,12 @@ const Projects = () => {
           "linear-gradient(to bottom right,#f8fafc,#eef2ff)",
         padding: "40px",
         boxSizing: "border-box",
+
+        marginLeft: window.innerWidth <= 768 ? "90px" : "260px",
+          width: window.innerWidth <= 768
+          ? "calc(100% - 90px)"
+          : "calc(100% - 260px)",
+        
       }}
     >
       {/* HERO SECTION */}
@@ -137,10 +143,19 @@ const Projects = () => {
             "linear-gradient(135deg,#2563eb,#1d4ed8)",
           borderRadius: "30px",
           padding: "45px",
+          
           color: "white",
           display: "flex",
+          flexDirection:
+          window.innerWidth <= 768
+          ? "column"
+          : "row",
           justifyContent:
-            "space-between",
+            "center",
+            gap: "25px",
+
+           width: "100%",
+           maxWidth: "100%",
           alignItems: "center",
           marginBottom: "40px",
           boxShadow:
@@ -207,22 +222,37 @@ const Projects = () => {
           onClick={() =>
             setShowModal(true)
           }
-          style={{
-            background: "white",
-            color: "#2563eb",
-            border: "none",
-            padding: "16px 28px",
-            borderRadius: "16px",
-            fontSize: "16px",
-            fontWeight: "700",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            boxShadow:
-              "0 8px 25px rgba(0,0,0,0.15)",
-            transition: "0.3s",
-          }}
+         style={{
+  position: "relative",
+  marginTop: "25px",
+  alignSelf: "center",
+
+  background: "white",
+  color: "#2563eb",
+  border: "none",
+
+  width: window.innerWidth <= 768 ? "100%" : "220px",
+
+  padding: "16px 20px",
+  borderRadius: "16px",
+
+  fontSize: "16px",
+  fontWeight: "700",
+
+  cursor: "pointer",
+
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  gap: "10px",
+
+  boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
+  transition: "0.3s",
+
+  marginLeft: "auto",
+  marginRight: "auto",
+}}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
               "translateY(-5px)";
@@ -240,10 +270,12 @@ const Projects = () => {
       {/* PROJECT GRID */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(350px,1fr))",
-          gap: "30px",
+          display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    gap: "30px",
         }}
       >
         {projects.length > 0 ? (
@@ -254,6 +286,9 @@ const Projects = () => {
                 background:
                   "rgba(255,255,255,0.9)",
                 borderRadius: "30px",
+
+                margin: "0 auto",
+                width: window.innerWidth <= 768 ? "95%" : "100%",
                 padding: "30px",
                 backdropFilter:
                   "blur(10px)",
@@ -285,6 +320,9 @@ const Projects = () => {
                   background:
                     "linear-gradient(135deg,#dbeafe,#bfdbfe)",
                   display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: window.innerWidth <= 768 ? "column" : "row",
+
                   justifyContent:
                     "center",
                   alignItems: "center",
@@ -300,7 +338,7 @@ const Projects = () => {
               {/* TITLE */}
               <h2
                 style={{
-                  fontSize: "32px",
+                   fontSize: window.innerWidth <= 768 ? "20px" : "32px",
                   fontWeight: "700",
                   color: "#111827",
                   marginBottom: "15px",
@@ -386,30 +424,53 @@ const Projects = () => {
           ))
         ) : (
           <div
-            style={{
-              background: "white",
-              padding: "60px",
-              borderRadius: "24px",
-              textAlign: "center",
-              gridColumn: "1/-1",
-              boxShadow:
-                "0 10px 25px rgba(0,0,0,0.08)",
-            }}
-          >
-            <FaProjectDiagram
-              size={55}
-              color="#9ca3af"
-            />
+  style={{
+     background: "white",
 
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#374151",
-              }}
-            >
-              No Projects Found
-            </h2>
-          </div>
+  width: window.innerWidth <= 768
+    ? "100%"
+    : "420px",
+
+  minHeight: window.innerWidth <= 768
+    ? "260px"
+    : "320px",
+
+  borderRadius: "30px",
+
+  padding: window.innerWidth <= 768
+    ? "35px 25px"
+    : "45px",
+
+  display: "flex",
+  flexDirection: "column",
+
+  justifyContent: "center",
+  alignItems: "center",
+
+  margin: "40px auto",
+
+  boxShadow:
+    "0 20px 40px rgba(37,99,235,0.15)",
+
+  textAlign: "center",
+  }}
+>
+  <FaProjectDiagram
+    size={55}
+    color="#9ca3af"
+  />
+
+  <h2
+    style={{
+      marginTop: "16px",
+    color: "#6b7280",
+    fontSize: "15px",
+    lineHeight: "24px",
+    }}
+  >
+    No Projects Found
+  </h2>
+</div>
         )}
       </div>
 

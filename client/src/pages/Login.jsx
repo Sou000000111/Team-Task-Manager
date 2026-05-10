@@ -101,7 +101,7 @@ const Login = () => {
         alignItems: "center",
         background:
           "linear-gradient(to bottom right,#dbeafe,#eff6ff)",
-        padding: "20px",
+        padding: window.innerWidth <= 768 ? "10px" : "20px",
       }}
     >
       <div

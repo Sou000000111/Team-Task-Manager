@@ -125,3 +125,37 @@ body,
   font-family: Arial, sans-serif;
   background: #f3f4f6;
 }
+
+/* MOBILE RESPONSIVE FIX */
+
+html,
+body,
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+
+  .dashboard-card,
+  .project-card,
+  .task-card {
+    width: 100% !important;
+  }
+
+  h1 {
+    font-size: 24px !important;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .modal {
+    width: 95% !important;
+  }
+}

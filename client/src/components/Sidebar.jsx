@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   // ACTIVE MENU STYLE
   const menuStyle = (path) => ({
-    padding: "16px 18px",
+    //padding: "16px 18px",
     borderRadius: "14px",
     display: "flex",
     alignItems: "center",
@@ -36,6 +36,8 @@ const Sidebar = () => {
     fontSize: "16px",
     cursor: "pointer",
     transition: "all 0.3s ease",
+    justifyContent: "center",
+    padding: window.innerWidth <= 768 ? "14px" : "14px 20px",
     background:
       location.pathname === path
         ? "linear-gradient(135deg,#2563eb,#3b82f6)"
@@ -55,7 +57,8 @@ const Sidebar = () => {
   return (
     <div
       style={{
-        width: "260px",
+       width: window.innerWidth <= 768 ? "90px" : "260px",
+        minWidth: window.innerWidth <= 768 ? "90px" : "260px", 
         background:
           "linear-gradient(180deg,#0f172a,#020617)",
 
@@ -96,7 +99,7 @@ const Sidebar = () => {
               color: "#364e75",
             }}
           >
-            Task Manager
+            {window.innerWidth <= 768 ? "TM" : "Task Manager"}
           </h1>
 
           <p
@@ -106,7 +109,7 @@ const Sidebar = () => {
               margin: 0,
             }}
           >
-            Team Workspace
+            {window.innerWidth <= 768 ? "" : "Team Workspace"}
           </p>
         </div>
 
@@ -127,7 +130,7 @@ const Sidebar = () => {
           >
             <div style={menuStyle("/")}>
               <FaTachometerAlt size={18} />
-              Dashboard
+              {window.innerWidth <= 768 ? " " : "Dashboard"}
             </div>
           </Link>
 
@@ -140,7 +143,7 @@ const Sidebar = () => {
           >
             <div style={menuStyle("/projects")}>
               <FaProjectDiagram size={18} />
-              Projects
+              {window.innerWidth <= 768 ? " " : "Projects"}
             </div>
           </Link>
 
@@ -153,7 +156,7 @@ const Sidebar = () => {
           >
             <div style={menuStyle("/tasks")}>
               <FaTasks size={18} />
-              Tasks
+              {window.innerWidth <= 768 ? " " : "Tasks"}
             </div>
           </Link>
         </div>
@@ -220,7 +223,7 @@ const Sidebar = () => {
           }}
         >
           <FaSignOutAlt />
-          Logout
+          {window.innerWidth <= 768 ? " " : "Logout"}
         </button>
 
         {/* FOOTER */}
